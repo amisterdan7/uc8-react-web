@@ -1,24 +1,33 @@
-export type TipoMovimentacao = 'entrada' | 'saida';
-export interface Categoria { id: number; nome: string; }
+export type StatusMatricula = 'ativa' | 'inativa' | 'vencida'
 
-export interface Produto {
-  id: number;
-  nome: string;
-  descricao?: string;
-  categoriaId: number;
-  quantidade: number;
-  limiteBaixo?: number;
+export interface Aluno {
+  id: number
+  nome: string
+  dataNascimento: string
+  telefone?: string
+  ativo: boolean
 }
 
-type VarianteCartao = 'completo' | 'resumido';
-
-export interface CartaoProdutoProps {
-  produto: Produto;
-  limiteBaixo?: number;
-  variante?: VarianteCartao;
+export interface Plano {
+  id: number
+  nome: string
+  preco: number
+  duracaoMeses: number
+  descricao?: string
 }
 
-export interface Movimentacao {
-  id: number; produtoId: number; tipo: TipoMovimentacao;
-  quantidade: number; data: string;
+export interface Matricula {
+  id: number
+  alunoId: number
+  planoId: number
+  dataInicio: string
+  dataFimEstimada: string
+  status: StatusMatricula
+}
+
+export type VarianteCartao = 'completo' | 'resumido'
+
+export interface CartaoAlunoProps {
+  aluno: Aluno
+  variante?: VarianteCartao
 }

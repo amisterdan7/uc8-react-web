@@ -1,30 +1,43 @@
-import { Cabecalho } from './components/Cabecalho';3
-import type { Produto } from './types/entidades';
-import { CartaoProduto } from './components/CartaoProduto';
-import { Rodape } from './components/Rodape';
+import type { Aluno } from './types/entidades'
+import { Cabecalho } from './components/Cabecalho'
+import { CartaoAluno } from './components/CartaoALuno'
+import { Rodape } from './components/Rodape'
 
-
-
-const chavePhillips: Produto = {
-  id: 2, nome: 'Chave Phillips', descricao: 'Ponta PH2',
-  categoriaId: 2, quantidade: 0,
-};
-
-const ParafusoM6: Produto = {
-  id: 3,
-  nome: 'Parafuso M6', 
-  descricao: 'Parafuso sextavado M6',
-  categoriaId: 1, quantidade: 120,
+const ricardo: Aluno = {
+  id: 1,
+  nome: 'Ricardo Amisterdan',
+  dataNascimento: '2000-05-14',
+  telefone: '(84) 99999-0000',
+  ativo: true
 }
 
+const joao: Aluno = {
+  id: 2,
+  nome: 'João Silva',
+  dataNascimento: '1998-11-02',
+  ativo: false
+}
+
+const Bruna: Aluno = {
+  id: 3,
+  nome: 'Bruna Souza',
+  dataNascimento: '2001-07-22',
+  telefone: '(84) 98888-1111',
+  ativo: true
+}
 
 export default function App() {
   return (
-    <main>
+    <>
       <Cabecalho />
-      <CartaoProduto produto={chavePhillips} />
-      <CartaoProduto produto={ParafusoM6}/>
+      <main id="center">
+        <div className="cartoes-container">
+          <CartaoAluno aluno={ricardo} />
+          <CartaoAluno aluno={joao} variante="resumido" />
+          <CartaoAluno aluno={Bruna} />
+        </div>
+      </main>
       <Rodape />
-    </main>
-  );
+    </>
+  )
 }

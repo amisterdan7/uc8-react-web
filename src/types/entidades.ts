@@ -24,10 +24,3 @@ export interface Matricula {
   dataFimEstimada: string
   status: StatusMatricula
 }
-
-export type VarianteCartao = 'completo' | 'resumido'
-
-export interface CartaoAlunoProps {
-  aluno: Aluno
-  variante?: VarianteCartao
-}

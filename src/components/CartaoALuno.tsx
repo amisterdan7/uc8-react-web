@@ -1,4 +1,10 @@
-import type { CartaoAlunoProps } from '../types/entidades';
+import type { Aluno } from "../types/entidades";
+
+export type VarianteCartao = 'completo' | 'resumido'
+export interface CartaoAlunoProps {
+  aluno: Aluno
+  variante?: VarianteCartao
+}
 
 export function CartaoAluno({ aluno, variante = 'completo' }: CartaoAlunoProps) {
   return (

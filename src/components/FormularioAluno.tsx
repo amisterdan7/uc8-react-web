@@ -1,4 +1,3 @@
-// src/components/FormularioAluno.tsx
 import { useState } from 'react';
 import type { Aluno } from '../types/entidades';
 
@@ -10,10 +9,10 @@ export function FormularioAluno({ aoEnviar }: FormularioAlunoProps) {
   const [nome, setNome] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
   const [telefone, setTelefone] = useState('');
-  const [ativo, setAtivo] = useState(true); // Checkbox para boolean[cite: 3]
+  const [ativo, setAtivo] = useState(true); 
 
   function tratarEnvio(evento: React.FormEvent<HTMLFormElement>) {
-    evento.preventDefault(); // Evita recarregar a página[cite: 3]
+    evento.preventDefault(); 
     
     aoEnviar({
       id: Date.now(),
@@ -23,7 +22,6 @@ export function FormularioAluno({ aoEnviar }: FormularioAlunoProps) {
       ativo
     });
 
-    // Limpa o formulário
     setNome('');
     setDataNascimento('');
     setTelefone('');
@@ -35,7 +33,7 @@ export function FormularioAluno({ aoEnviar }: FormularioAlunoProps) {
       <input 
         placeholder="Nome do Aluno" 
         value={nome} 
-        onChange={(e) => setNome(e.target.value)} 
+        onChange={(e) => setNome(e.target.value)}  
         required 
       />
       <input 

@@ -66,6 +66,14 @@ body {
   margin: 0;
 }
 
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+}
+
 h1,
 h2 {
   font-family: var(--heading);
@@ -77,20 +85,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 10px 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -110,8 +122,71 @@ code {
   background: var(--code-bg);
 }
 
-/* Container para alinhar e dar espaço entre os cartões */
+input {
+  font-family: var(--sans);
+  font-size: 16px;
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--code-bg);
+  color: var(--text);
+}
+
+input:focus,
+input:hover,
+button:focus,
+.cartao:hover {
+  border-color: var(--accent-border);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+
+form {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+button {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 24px;
+
+  align-self: center;
+  margin-top: 1rem;
+
+  cursor: pointer;
+  background-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: transparent;
+  color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .cartoes-container {
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -120,15 +195,18 @@ code {
   margin: 0 auto;
 }
 
-/* O cartão super elegante */
 .cartao {
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 8px;
+  margin: 0;
+  padding: 1rem;
   background: var(--code-bg);
-  text-align: left;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -136,13 +214,12 @@ code {
 .cartao:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: var(--accent-border);
 }
 
 .cartao h2 {
   margin: 0;
   font-size: 20px;
-  color: var(--accent); /* Usa a cor de destaque do template */
+  color: var(--accent);
 }
 
 .cartao p {
@@ -156,7 +233,7 @@ code {
   display: inline-block;
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 600;
   text-transform: uppercase;
   width: fit-content;
@@ -173,4 +250,5 @@ code {
   background-color: rgba(161, 161, 170, 0.15);
   color: #a1a1aa;
   border: 1px solid rgba(161, 161, 170, 0.3);
+
 }

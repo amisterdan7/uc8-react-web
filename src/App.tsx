@@ -8,6 +8,7 @@ import { ListaAlunos } from './components/ListaAlunos';
 
 export default function App() {
   const [alunos, setAlunos] = useState<Aluno[]>([]);
+  const [isVisible, setIsVisible] = useState(true);
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
@@ -26,17 +27,20 @@ export default function App() {
       <Cabecalho />
 
       <section style={{ marginBottom: '2rem' }}>
-        {/* <h2>Novo Aluno</h2> */}
         <FormularioAluno aoEnviar={adicionarAluno} />
       </section>
 
       <section>
-        <h2>Lista de Alunos</h2>
-        {carregando ? (
+        {isVisible && <h2> {carregando ? (
           <p>Carregando dados da academia...</p>
         ) : (
           <ListaAlunos alunos={alunos} />
-        )}
+        )}</h2>}
+        
+        <button onClick={() => setIsVisible(!isVisible)}>
+          {isVisible ? 'Ocultar Lista de ALunos' : 'Mostrar Lista de ALunos'}
+        </button>
+
         <Rodape/>
       </section>
     </main>
